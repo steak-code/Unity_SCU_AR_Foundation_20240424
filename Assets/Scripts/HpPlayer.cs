@@ -5,6 +5,8 @@ public class HpPlayer : HpSystem
 {
     [SerializeField, Header("圖片血條")]
     private Image imgHP;
+    [SerializeField, Header("畫布")]
+    private GameObject goCanvas;
 
     private string enemyAttackAreaName = "敵人攻擊區域";
 
@@ -32,5 +34,12 @@ public class HpPlayer : HpSystem
         // 更新血條圖片介面
         // 圖片血條 的 填滿長度 = 血量 / 血量最大值
         imgHP.fillAmount = hp / hpMax;
+    }
+
+    protected override void Dead()
+    {
+        base.Dead();
+        // 畫布 啟動設定(顯示)
+        goCanvas.SetActive(true);
     }
 }

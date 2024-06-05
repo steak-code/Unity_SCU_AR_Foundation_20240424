@@ -23,12 +23,14 @@ public class EnemySystem : MonoBehaviour
     private string parMove = "移動數值";
     private string parAttack = "右鉤拳";
     private bool isAttacking;
+    private string playerName = "玩家物件";
 
     // 喚醒事件 : 遊戲開始時執行一次
     private void Awake()
     {
         // print("哈囉，沃德~");
-
+        // 目標 = 搜尋場景上名稱為 "玩家物件" 的物件 的 變形資訊
+        target = GameObject.Find(playerName).transform;
         // 代理器 = 取得此物件的元件<元件名稱>();
         agent = GetComponent<NavMeshAgent>();
         ani = GetComponent<Animator>();
